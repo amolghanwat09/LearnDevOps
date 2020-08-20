@@ -1,0 +1,76 @@
+Json (Session - 1)
+1) Intro
+2) DataStructure
+3) Use cases
+4) Write sample JSON file
+
+Yaml (Session - 1)
+1) Intro
+2) DataStructure
+3) Use cases
+4) Write sample YAML file
+
+Gitlab (Session - 1)
+1) What is version control
+2) Benifit of version control
+2) why it is / why GIT
+3) clone / commit / push / pull / branching / history 
+4) use cases
+5) Demo and Practice
+
+Bash Scripting (Session - 2)
+1) Variables, loops, conditions
+2) basic scripts
+3) advance scripts
+
+Python (Session - 2 & 3) 
+1) Intro
+2) programming fundamentals (variable, loops, conditions, function, class)
+3) variables, loops
+4) functions
+5) class
+6) Practicle use case
+
+Ansible (Session - 4 & 5)
+1) Intro
+2) why Ansible
+3) use basic commands
+4) write basic playbook 
+5) write adv. playbook
+6) Practicle use case
+
+Jenkins (Session - 6,7)
+1) Intro, overview, why it is
+2) Installation and management
+3) Configuration
+3) create simple CI/CD
+
+Bit Bucket (Session - 7)
+1) Intro, overview, why it is
+2) Installation and management
+3) configuration
+3) create simple CI/CD
+
+Docker (Session - 8,9)
+1) Intro, history, why it is, how it is
+2) Architecture and Installation
+3) Docker - hub, images, containers
+4) Networking with Docker
+5) Volume with Docker
+6) Docker compose
+
+Terraform (Session - 10)
+1) Intro, why it is, how it works.
+2) Basics of terraform
+3) Create infrastructure in AWS
+4) Practicle use case
+
+Kubernetes (Session - 11)
+1) Intro, what, why Kubernetes
+2) Kubernetes Architecture
+3) understand each component 
+4) Create Kubernetes cluster with https://labs.play-with-k8s.com/
+5) Create Kubernetes cluster with AWS Kubernetes service
+
+Project on Docker (Session - 12)
+Project on Jenkins + ansible (Session - 13)

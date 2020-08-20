@@ -1,2 +1,2 @@
-# LearnDevOps
-DevOps repo to learn DevOps tools
+# DevOps
+Learn DevOps tools
