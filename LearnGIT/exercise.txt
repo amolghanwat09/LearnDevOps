@@ -1,0 +1,56 @@
+#Create git account on github.com
+
+#Create git repo
+
+#install git on server
+yum install git -y
+
+#clone git on server
+git clone https://github.com/tciaindiadevops/myfirstrepo.git
+
+#create test file inside repo and check status
+cd myfirstrepo
+vim test
+	This is my first edit.
+git status
+
+#add new file in index
+git add test.txt
+git status
+
+#comit file in local repo
+git commit -m "first edit"
+git status
+
+#push changes to github
+git push
+
+#Open test.txt file in github make changes and save/commit it.
+	This is my second edit.
+
+#pull repo to get latest update.
+git pull
+
+#edit test file agin and 3rd line
+cd myfirstrepo
+vim test
+	This is my third edit.
+git status
+git add test.txt
+git status
+git commit -m "third edit"
+git status
+git push
+
+#Now I want a older version of file.
+#check git log for older versions of file
+git log --oneline
+
+#select version id and restore it
+git checkout <versionid> test.txt
+git status
+git add test.txt
+git status
+git commit -m "third edit"
+git status
+git push

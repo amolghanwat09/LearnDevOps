@@ -1,0 +1,11 @@
+--- 
+- name: nilesh
+  add: thane
+  age: 37
+  subject: 
+    - "English : 40, Hindi : 60, Marathi : 50"
+- name: ashok
+  add: kalyan
+  age: 35
+  subject: 
+    - "English : 68, Hindi : 55, Marathi : 60"

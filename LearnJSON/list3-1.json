@@ -1,0 +1,15 @@
+{
+	"Description": "Details of Student",
+	"name": {
+		"Nilesh": {
+			"add": "thane",
+			"age": 37,
+			"subject": ["English", "Hindi", "Marathi"]
+		},
+		"Ashok": {
+			"add": "kalyan",
+			"age": 35,
+			"subject": ["English", "Hindi", "Marathi"]
+		}
+	}
+}

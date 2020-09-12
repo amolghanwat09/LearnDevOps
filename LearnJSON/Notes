@@ -1,0 +1,113 @@
+JavaScript Object Notation is a lightweight text-based open standard designed for human-readable data interchange.
+
+The filename extension is .json
+
+Uses of JSON
+1) write JavaScript 
+2) serializing and transmitting structured data over network connection. (API)
+3) transmit data between a server and web applications. (REST call)
+4) Web services and APIs use JSON format to provide public data.
+5) used with modern programming languages.
+
+Format :
+1) key-value data format.
+2) Key must be string.
+3) key value seperated by colon (:).
+4) Start and end with curly braces.
+5) use double quotes for each key and value.
+6) Use comma to seperate data (row/column).
+7) use square bracket for array/multivalue.
+8) dublicate key not allowed in single doc.
+9) each line should end with {}[], except last line of list.
+
+Validate : https://jsonlint.com/
+
+Sample 1
+#########
+{
+	"Name": [
+		"Nilesh",
+		"Ashok",
+		"Vikas"
+	]
+
+}
+
+Sample 2
+#########
+{
+	"Description": "Details of Student",
+	"name": {
+		"Nilesh": {
+			"add": "thane",
+			"age": 37
+		},
+		"Ashok": {
+			"add": "kalyan",
+			"age": 35
+		}
+	}
+}
+Sample 3
+#########
+{
+	"Description": "Details of Student",
+	"name": {
+		"Nilesh": {
+			"add": "thane",
+			"age": 37,
+			"subject": ["English", "Hindi", "Marathi"]
+		},
+		"Ashok": {
+			"add": "kalyan",
+			"age": 35,
+			"subject": ["English", "Hindi", "Marathi"]
+		}
+	}
+}
+
+Sample 4
+#########
+{
+	"Description": "Details of Student",
+	"name": {
+		"nilesh": {
+			"add": "thane",
+			"age": 37,
+			"subject": [{
+					"English": 40
+				},
+				{
+					"Hindi": 60
+				},
+				{
+					"Marathi": 50
+				}
+			]
+		},
+		"ashok": {
+			"add": "kalyan",
+			"age": 35,
+			"subject": [{
+					"English": 65
+				},
+				{
+					"Hindi": 39
+				},
+				{
+					"Marathi": 73
+				}
+			]
+		}
+	}
+}
+
+
+JSON to YAML - https://www.json2yaml.com/
+
+Use Case : Get weather information
+API key - e54a565d66bf93944746adaf66d38cdb
+Endpoint - api.openweathermap.org
+API doc - https://openweathermap.org/current
+i.e - api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=e54a565d66bf93944746adaf66d38cdb
+i.e - api.openweathermap.org/data/2.5/weather?q=Mumbai,India&APPID=e54a565d66bf93944746adaf66d38cdb

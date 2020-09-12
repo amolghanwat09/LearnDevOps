@@ -1,0 +1,109 @@
+YAML Ain't Markup Language
+human friendly 
+data serialization language
+Ease of implementation and usage
+
+Uses of YAML
+1) conf files
+2) programming
+
+Rules
+1) case sensitive
+2) .yaml or .yml as the extension
+3) Multiple documents with single streams are separated with 3 hyphens (---).
+4) tabs not allowed; spaces are allowed instead
+5) New list/item start with hyphens -
+6) Use # for comments
+7) space after the colon is mandatory in case of KEY/VALUE
+
+
+Validator - http://www.yamllint.com/
+
+Sample 1
+########
+--- 
+- Nilesh
+- Ashok
+- Vikas
+
+Sample 2
+#########
+---
+- Description : Details of Student
+- name: nilesh
+  add: thane
+  age: 37
+- name: ashok
+  add: kalyan
+  age: 35
+
+Sample 3
+########
+--- 
+- Description : Details of Student
+- name: nilesh
+  add: thane
+  age: 37
+  subject: 
+    - English
+    - Hindi
+    - Marathi
+- name: ashok
+  add: kalyan
+  age: 35
+  subject: 
+    - English
+    - Hindi
+    - Marathi
+
+OR
+
+--- 
+- Description : Details of Student
+- name: nilesh
+  add: thane
+  age: 37
+  subject: 
+    - "English, Hindi, Marathi"
+- name: ashok
+  add: kalyan
+  age: 35
+  subject: 
+    - "English, Hindi, Marathi"
+
+Sample 4
+########
+--- 
+- Description : Details of Student
+- name: nilesh
+  add: thane
+  age: 37
+  subject: 
+    - English : 40
+    - Hindi : 60
+    - Marathi : 50
+- name: ashok
+  add: kalyan
+  age: 35
+  subject: 
+    - English : 40
+    - Hindi : 80
+    - Marathi : 55
+
+OR
+
+--- 
+- Description : Details of Student
+- name: nilesh
+  add: thane
+  age: 37
+  subject: 
+    - "English : 40, Hindi : 60, Marathi : 50"
+- name: ashok
+  add: kalyan
+  age: 35
+  subject: 
+    - "English : 68, Hindi : 55, Marathi : 60"
+
+
+Yaml to JSON - https://www.convertjson.com/yaml-to-json.htm

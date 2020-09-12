@@ -1,0 +1,18 @@
+--- 
+- Description : Details of Student
+- 
+  name: nilesh
+  add: thane
+  age: 37
+  subject: 
+    - English
+    - Hindi
+    - Marathi
+- 
+  name: ashok
+  add: kalyan
+  age: 35
+  subject: 
+    - English
+    - Hindi
+    - Marathi

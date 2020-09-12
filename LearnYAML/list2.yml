@@ -1,0 +1,8 @@
+---
+- Description : Details of Student
+- name: nilesh
+  add: thane
+  age: 37
+- name: ashok
+  add: kalyan
+  age: 35
