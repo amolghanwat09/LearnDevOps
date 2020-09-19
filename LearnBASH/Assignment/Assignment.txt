@@ -1,0 +1,16 @@
+1)print list of existing local user's and their homedirectory on console in following format (use awk with /etc/passwd file)
+user1 - /home/user1
+user2 - /home/user2
+
+2) Create file data.txt with below line. You need to replace "Nilesh" with your name in single command without opening file. (use sed)
+This is Nilesh and I am mad.
+
+3) Create bash script to Fetch list of uniq ip's with total number of request from that ip from access.log file. (hint - awk, wc, sort, uniq)
+i.e.
+83.149.9.216 - 23
+
+4) create bash script which will ping each website mentioned in website.txt and get it's ipv4/ipv6 and create website-detail.txt with website and it's ip address in below format. (hint - use for loop, ping website, use awk to get ip)
+google.com [2404:6800:4009:80a::200e]
+
+5) Write a bash script which will check /tmp/test directory exist or not, if directory not exist then it will create directory. (Hint - read question again)
+© 2020 GitHub, Inc.
