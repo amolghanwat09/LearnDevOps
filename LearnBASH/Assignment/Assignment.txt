@@ -14,3 +14,18 @@ google.com [2404:6800:4009:80a::200e]
 
 5) Write a bash script which will check /tmp/test directory exist or not, if directory not exist then it will create directory. (Hint - read question again)
 © 2020 GitHub, Inc.
+
+6) Create a bash script with six function usage, add, sub, mul, div, and get below input from user and as per the operation show output.
+    #What operation they want to perform (add,sub,mul,div), if user enter other than that it should execute usage funtion and exit the program.
+    #get num1
+    #get num2
+
+7) Create a bash script, which will take below arguments
+    # -S means source, you need to provide source path
+    # -D means destination, you need to provide destination path
+    # -t means use tar command, this parameter need not value, it is just indicator which utility need to use while taking backup
+    # -z means use zip command, this parameter need not value, it is just indicator which utility need to use while taking backup
+    Note - Observe -S and -D is in CAPITAL, -t and -z is in SMALL case.
+    Note - You need to take care of error handling.
+    i.e. if given source is not exist, then script should show that msg that source is not exist.
+    i.e. if destination is not exist, then create it.
