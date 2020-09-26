@@ -1,0 +1,8 @@
+1) Create a list of your friends, print it on console, also print what type of data it is. (use list and type function)
+
+2) Create a tuple by Converting above list of your friends in tuple, print what type of data it is. (use tuple and type function)
+
+3) Create a set by Converting above list of your friends in tuple, print what type of data it is. (use set and type function)
+
+4) create 2 string variable num1 and num2, but each will contain a number, but if you check what type of data it is, it should show string type of data.
+   now try addition of num1 and num2, after that again try to addition of num1 and num2 but this time convert it to integer before addition. (do it yourself)
