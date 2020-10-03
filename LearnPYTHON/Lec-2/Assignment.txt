@@ -1,0 +1,36 @@
+#Manually create below 3 environment variables and create python script to print those 3 environment variables.
+JAVA_HOME=/local/apps/calcindex/software/java/jdk
+APPNAME=calcindex
+CATALINA_HOME=/local/apps/calcindex/software/tomcat
+
+#Write a python script which will ask student name, marks for 3 subject ENG,HIN,MAR and then script should print below values
+Student Name = <Name of the Student>
+Total Marks = <total>
+Percentage (%) = <percent>
+Result = <Pass/Fail>	
+Note : 
+	# Name of the student should print in CAPITAL letters.
+	#Marks for each subject should not be more than 100.
+	#if any of the subject has less than 35 marks, result should be "Fail".
+	#implement error handling, if user enter other than number as marks should show appropriate error like, You have not entered number something like that.
+
+#Create shape.py which will have 3 function, circle, rectangle, square which will calculate their area. 
+Now create another python script calculatearea.py which take shape name as a input from user by asking which shape area want to calculate, 
+give shape suggestion in bracket for which you have written funtion to calculate area. after user give input, 
+script should ask required data to calculate area, 
+i.e. user enter circle then script should ask radius of a circle, which is required to calculate area of circle and then script should calculate area 
+and show on the screen.  
+i.e.
+Which shape area you want to calculate? [CIRCLE/SQUARE/RECTANGLE] (press q for quit)	----> this will be script output
+CIRCLE		----> this will be user input
+What is size of radius of a circle?	----> this will be script output
+5			----> this will be user input
+Area of circle is 78.54	----> this will be script output
+Which shape area you want to calculate? [CIRCLE/SQUARE/RECTANGLE] (press q for quit)	----> this will be script output
+q			----> this will be user input
+
+Note : 
+	#Script should not exit once user give input and script calculate area and print it on screen, it should ask again and go on till user press q to exit from the script.
+	#you need to import shape.py in calculatearea.py, do not write any function in calculatearea.py to calculate area for the shape.
+	#user can enter shape name in lower or upper, it should work.
+	#handler errors while taking input from user. for example, if user input shape name other than asked, then you should print, "This is not shape name or invalid shape." and script should again ask shape name.

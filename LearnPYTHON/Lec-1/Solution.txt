@@ -1,0 +1,53 @@
+  
+1) Create a list of your friends, print it on console, also print what type of data it is. (use list and type function)
+
+2) Create a tuple by Converting above list of your friends in tuple, print what type of data it is. (use tuple and type function)
+
+3) Create a set by Converting above list of your friends in tuple, print what type of data it is. (use set and type function)
+
+
+root@DESKTOP-SC2EFJ3:/home/viraj# cat assignment1.py
+print ("Question1")
+friends = ["viraj","kshitij","vaibhav","viraj","sajal","pradnesh","vaibhav","viraj"]
+print (friends)
+print (type(friends))
+print("Question2")
+tup = tuple(friends)
+print (tup)
+print (type(tup))
+print("Question3")
+se1 = set(tup)
+print (se1)
+print (type(se1))
+
+Output
+
+root@DESKTOP-SC2EFJ3:/home/viraj# python assignment1.py
+Question1
+['viraj', 'kshitij', 'vaibhav', 'viraj', 'sajal', 'pradnesh', 'vaibhav', 'viraj']
+<type 'list'>
+Question2
+('viraj', 'kshitij', 'vaibhav', 'viraj', 'sajal', 'pradnesh', 'vaibhav', 'viraj')
+<type 'tuple'>
+Question3
+set(['vaibhav', 'kshitij', 'sajal', 'pradnesh', 'viraj'])
+<type 'set'>
+
+--------------------------------------------------------------------------------------------------
+
+4) create 2 string variable num1 and num2, but each will contain a number, but if you check what type of data it is, it should show string type of data.
+   now try addition of num1 and num2, after that again try to addition of num1 and num2 but this time convert it to integer before addition. (do it yourself)
+
+numb1 = "31"
+numb2 = "8"
+print (type(numb1))
+print (type(numb2))
+print (numb1 + numb2)
+print (int(numb1) + int(numb2))
+
+Output
+<type 'str'>
+<type 'str'>
+318
+39
+----------------------------------------------------------------------------
