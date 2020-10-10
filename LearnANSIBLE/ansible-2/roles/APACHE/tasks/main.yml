@@ -1,0 +1,39 @@
+---
+# defaults file for APACHE
+- name: "Uninstall packages"
+  yum: 
+    name: 
+      - httpd
+      - httpd-tool
+      - php
+      - php-cli
+      - php-common
+    state: latest
+- name: "Install require packages"
+  yum: 
+    name: "{{ PACKAGES }}"
+    state: latest
+- name: "Copy conf file"
+  copy: 
+    src: "httpd.conf"
+    dest: "/etc/httpd/conf/httpd.conf"
+    owner: root
+    group: root
+  notify : 
+    - "restart apache"
+- name: "Creating apache documentroot"
+  file: 
+    path: "{{ DOCUMENTROOT }}"
+    state: directory
+    owner: apache
+    group: apache
+    mode: 0755
+- name: "Copying apache document root"
+  copy: 
+    src: "index.html"
+    dest: "{{ DOCUMENTROOT }}"
+    owner: apache
+    group: apache
+    mode: 0755
+  notify : 
+    - "restart apache"

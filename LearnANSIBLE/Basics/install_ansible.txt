@@ -1,0 +1,13 @@
+#I am considering CentOS/RedHat based system.
+
+#You can install ansible by yum
+yum install ansible -y
+
+#You can install ansible by pip command
+pip install ansible
+
+#You can install ansible by creating RPM from source code.
+git clone https://github.com/ansible/ansible.git
+cd ./ansible
+make rpm
+sudo rpm -Uvh ./rpm-build/ansible-*.noarch.rpm

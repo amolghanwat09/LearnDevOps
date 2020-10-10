@@ -1,0 +1,8 @@
+---
+- name : "Install apache"
+  hosts : "{{ HOSTS }}"
+  become : yes
+  tasks :
+  - command : yum install httpd -y
+
+### ansible-playbook apache.yml -e HOSTS=192.168.10.168

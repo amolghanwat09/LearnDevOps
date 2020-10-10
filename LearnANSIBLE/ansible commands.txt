@@ -1,0 +1,19 @@
+Ansible Ad-hoc commands
+------------------------
+#Check server is reachable and accessible
+ansible -m ping <IP>/<alias-name>
+
+#Execute particular command at a time on multiple server
+ansible <group-name> -a "/sbin/reboot"
+
+run playbook
+-------------
+ansible-playbook install_elasticsearch.yml
+
+run playbook with parameter
+------------------------------
+ansible-playbook install_elasticsearch.yml -e HOSTS=dev02.acfs.spindices.com
+
+create role
+-------------
+ansible-galaxy init <role_name>

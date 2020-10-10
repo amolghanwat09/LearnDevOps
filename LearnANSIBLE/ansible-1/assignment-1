@@ -1,0 +1,12 @@
+Create a playbook which will do
+1) donwload java https://corretto.aws/downloads/latest/amazon-corretto-11-x64-linux-jdk.tar.gz
+2) unzip it inside /local/apps/app01/software/java/
+3) create symbolic link of /local/apps/app01/software/java/amazon-corretto-11-x64-linux-jdk to /local/apps/app01/software/java/jdk
+4) Create environment variable JAVA_HOME=/local/apps/app01/software/java/jdk
+5) download tomcat from https://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.55/bin/apache-tomcat-8.5.55.zip
+6) unzip it at /local/apps/app01/software/tomcat/
+7) Create cron job to start tomcat at 9am on Mon-Fri, saturday and sunday it should not start
+8) Create cron job to stop tomcat at 6pm on everyday.
+9) start tomcat
+
+Result - in browser if you put client ip tomcat page should show.

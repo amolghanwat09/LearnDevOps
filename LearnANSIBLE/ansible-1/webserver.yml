@@ -1,0 +1,44 @@
+---
+- name: "Install and configure webserver"
+  hosts: "{{ HOSTS }}"
+  become: yes
+  tasks:
+          - yum: 
+              name: httpd 
+              state: latest
+          - copy: 
+              src: /etc/httpd/conf/httpd.conf 
+              dest: /etc/httpd/conf/httpd.conf.org
+              remote_src: yes
+          - copy: 
+              src: httpd.conf 
+              dest: /etc/httpd/conf/httpd.conf
+          - file: 
+              path: /opt/htdocs
+              state: directory
+              owner: apache
+              group: apache
+              mode: 0755
+          - copy: 
+              name: "Copy htdocs file"
+              src: index.html
+              dest: /opt/htdocs
+              mode: 0755 
+          - cron: 
+              name: "stop apache"
+              weekday: "5"
+              minute: "00"
+              hour: "18"
+              user: "root"
+              job: "service httpd stop"
+          - cron: 
+              name: "start apache"
+              weekday: "1"
+              minute: "50"
+              hour: "09"
+              user: "root"
+              job: "service httpd start"
+          - service: 
+              name: httpd 
+              state: restarted 
+              enabled: yes

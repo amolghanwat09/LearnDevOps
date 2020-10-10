@@ -1,0 +1,17 @@
+#This is ini format
+#Default group - all and ungrouped
+
+192.168.10.168
+192.168.10.143
+
+[webservers]
+192.168.10.168		ansible_user=ansible
+web1	ansible_host=192.168.10.168 ansible_user=ansible
+#dev[01:03].example.com		#can be mention host range
+
+[dbservers]
+192.168.10.143		ansible_user=ansible
+
+[devservers]
+192.168.10.168
+192.168.10.143
