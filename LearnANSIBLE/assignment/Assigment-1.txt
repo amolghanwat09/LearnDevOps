@@ -1,0 +1,23 @@
+/local/apps/bata/software/java/amazon********	------> this will be directory after extracting .tar.gz
+/local/apps/bata/software/java/jdk				------> this will be symbolic link pointing to above directory. This symbolic will be used to set JAVA_HOME
+
+Pre-requisite
+--------------
+1) you require 2 servers. First would be ansible server, and second would be application server.
+2) create ansible user on ansible server. You will run ansible playbook from ansible user only, but on application server "bata" user will be available. In application server, ansible user won't be available. 
+3) create user "bata" on application server. Consider that we are going to run java application for BATA client. Also create directory /local/apps/bata owned by bata user.
+4) No SUDO access to any user, as it is not needed.
+
+Consideration
+-------------
+On Ansible server, you need to write a role to install "amazon corretto 11", below tasks you can mention inside role
+1) Create require directory structure. (Check first 2 lines)
+2) Download compressed file of amazon corretto java from aws site. https://corretto.aws/downloads/latest/amazon-corretto-11-x64-linux-jdk.tar.gz
+3) extract above tar.gz in proper place with proper permission.(check first line)
+4) Set JAVA_HOME in user profile.
+5) Also make sure if version of amazon corretto get changed still your playbook should run. ( check how you can create symbolic link dynamically, do not hard code it.)
+
+
+Output
+-------
+In application server, if I login with bata user, I should able to execute java command come out from amazon corretto
