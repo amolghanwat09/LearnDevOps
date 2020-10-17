@@ -1,0 +1,3 @@
+HOSTNO : dev01
+DOCUMENTROOT : "/local/apps/htdocs"
+HTTP_PORT : 22000

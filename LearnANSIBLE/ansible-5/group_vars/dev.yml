@@ -1,0 +1,4 @@
+---
+ENV : DEV
+DOCUMENTROOT : "/local/apps/htdocs"
+HTTP_PORT : 22000 

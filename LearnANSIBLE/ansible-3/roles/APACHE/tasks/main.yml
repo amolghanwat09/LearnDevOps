@@ -1,0 +1,35 @@
+---
+# defaults file for APACHE
+- name: "Install require packages"
+  yum: 
+    name: "{{ PACKAGES }}"
+    state: latest
+- name : "Take backup of apache conf file"
+  copy : 
+    src : "/etc/httpd/conf/httpd.conf"
+    dest : "/etc/httpd/conf/httpd.conf.org"
+    remote_src : yes
+- name: "Copy conf file"
+  template: 
+    src: "httpd.conf.j2"
+    dest: "/etc/httpd/conf/httpd.conf"
+    owner: root
+    group: root
+  notify : 
+    - "restart apache"
+- name: "Creating apache documentroot"
+  file: 
+    path: "{{ DOCUMENTROOT }}"
+    state: directory
+    owner: apache
+    group: apache
+    mode: 0755
+- name: "Copying apache document root"
+  copy: 
+    src: "index.html"
+    dest: "/opt/htdocs/"
+    owner: apache
+    group: apache
+    mode: 0755
+  notify : 
+    - "restart apache"

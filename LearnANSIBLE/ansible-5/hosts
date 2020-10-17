@@ -1,0 +1,7 @@
+[webserver]
+192.168.10.187 ansible_user=ansible
+
+[dev]
+dev01 ansible_host=192.168.10.187 ansible_user=ansible
+dev02 ansible_host=192.168.10.139 ansible_user=ansible
+dev03 ansible_host=192.168.10.196 ansible_user=ansible

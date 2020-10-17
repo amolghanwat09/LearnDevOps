@@ -1,0 +1,5 @@
+DOCUMENTROOT: "/var/www/html"
+HTTP_PORT: 80
+PACKAGES: 
+ - httpd
+ - php

@@ -1,0 +1,11 @@
+[webserver]
+192.168.10.187 ansible_user=ansible
+
+[dev]
+192.168.10.187 ansible_user=ansible
+
+[qa]
+192.168.10.139 ansible_user=ansible
+
+[prod]
+192.168.10.196 ansible_user=ansible

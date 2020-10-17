@@ -1,0 +1,4 @@
+DOCUMENTROOT: "/opt/htdocs"
+PACKAGES: 
+ - httpd
+ - php
