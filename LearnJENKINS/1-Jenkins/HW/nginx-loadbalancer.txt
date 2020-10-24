@@ -1,0 +1,86 @@
+#I am using ubuntu os
+
+#install nginx
+apt-get install nginx
+
+#main conf file and it's path
+/etc/nginx/nginx.conf
+
+#start nginx
+service nginx start
+
+#stop nginx
+service nginx stop
+OR
+nginx -s stop
+
+#if any configuration change then you can restart nginx
+nginx -s reload
+
+#check nginx is running or not
+service nginx status
+OR
+ps aux |grep nginx
+
+#There is 2 main process for nginx
+1) master process
+2) worker process
+you can check that with "ps aux |grep nginx" command
+
+#start nginx
+service nginx start
+
+#Open browser and insert server IP in address bar, you will get nginx page
+
+####### Lets do one practical for nginx as a loadbalancer #########
+#You already have nginx server. We need application server to test.
+
+#spin 2 amazon linux server with tomcat-userdata.sh, which help you to install tomcat and start tomcat server
+
+#open browser and insert in address bar http://<ip>:8080 you should able to see tomcat page
+
+#download webapp.war file from "form" branch of https://github.com/tciaindiadevops/TestWebApp.git  and copy it at /local/apps/tomcat/webapps/
+
+#now again open browser and check below url of each server.
+http://<ip>:8080/webapp
+#You should able to open one form where it ask first name and last name and submit button.
+
+#Now your application server is ready.
+
+#Login on nginx server.
+
+#add below configuration in http block of /etc/nginx/nginx.conf
+
+upstream tomcat {
+    # Use IP Hash for session persistence
+    ip_hash;
+
+    # List of Tomcat application servers
+    server <application-server-IP-1>:8080;
+    server <application-server-IP-2>:8080;
+}
+
+#add below configuration in /etc/nginx/sites-enabled/default in server block
+
+        location /webapp {
+                proxy_pass http://tomcat;
+        }
+
+#test nginx configuration
+nginx -t
+
+#reload nginx
+nginx -s reload
+
+#open broser with URL http://<nginx-ip>/webapp it should show you our form application.
+
+#To test nginx loadbalancer, monitor tomcat log on both server and check where request is going 
+#and open 7-8 tab in browse and open application there...you will see some request going to first application 
+#server and some requst going to second appliation server.
+
+#Now stop one of the tomcat server and again try to refresh all those tab, for some time app will be down,
+#but after 2-3 refresh, app will come up in some case.
+
+#For more advance configuration you can download below files
+curl https://www.nginx.com/resource/conf/tomcat-basic.conf > tomcat-basic.conf
+curl https://www.nginx.com/resource/conf/tomcat-enhanced.conf > tomcat-enhanced.conf

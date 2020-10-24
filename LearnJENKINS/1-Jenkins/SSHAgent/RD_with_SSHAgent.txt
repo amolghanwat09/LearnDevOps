@@ -1,0 +1,5 @@
+#install SSH Agent plugin
+#Manage Jenkins --> Manage Credential --> add credential --> add key which you use to login on ec2 instance. (Instance key)
+#Create pipeline and copy pipeline script and change ip addres in script.
+#add server fingerprint in known_hosts file, run this command on jenkins server.
+     ssh-keyscan -H <app_server_ip>   >> ~/.ssh/known_hosts

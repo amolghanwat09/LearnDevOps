@@ -26,5 +26,3 @@ EOF
 chmod 755 /local/apps/tomcat/start_tomcat.sh /local/apps/tomcat/stop_tomcat.sh
 chown ec2-user:ec2-user /local/apps/* -R
 
-#start tomcat
-/local/apps/tomcat/start_tomcat.sh

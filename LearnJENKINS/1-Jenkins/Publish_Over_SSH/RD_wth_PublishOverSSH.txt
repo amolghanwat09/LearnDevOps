@@ -1,0 +1,24 @@
+git url of application - https://github.com/tciaindiadevops/TestWebApp.git
+
+#install maven integration plugin
+#install "Publish over SSH" plugin
+#Manage Jekins --> Global Tool Configuration --> Maven --> /local/apps/maven
+#Manage Jenkins --> Configure system --> Publish over SSH
+#In 'Key' paste your ssh-key in PEM format which you have used while creating VM.
+    #Name - You can give anything
+    #hostname - application server ip
+    #username - ec2-user
+    #remote directory - /local/apps/tomcat
+#Click on Test Configuration...it should show Success...it means jenkins able to connect application server.
+#click on apply and save.
+
+#Click on New item --> Maven project --> ok
+#Source code mgmt --> paste git url of our application
+#build --> Goals & Options --> clean install
+#Post Steps --> Run only if build succeeds
+#Post Steps --> Drop down --> Send files or execute command over SSH --> 
+    #source files - webapp/target/webapp.war
+    #remove prefix - webapp/target/
+    #remote directory - webapps/
+#click on apply and save
+#click on build
