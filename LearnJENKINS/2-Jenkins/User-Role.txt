@@ -1,0 +1,13 @@
+	
+#install "Role-based Authorization Strategy" plugin
+#Create devuser and qauser
+#go to Configure Global Security
+  #in Authorization section select Role-Based Strategy
+#Manage Jenkins --> In security section --> Manage & Assign Roles
+    #Create role DEV and QA
+        #DEV role --> give full permission
+        #QA role --> Overall=read, JOB=build,cancel,read,workspace, VIEW=read
+    #Assign role to user
+
+Try login with "devuser" user and check you have all permission
+Try login with "qauser" user you have only access to trigger build and cancel build.

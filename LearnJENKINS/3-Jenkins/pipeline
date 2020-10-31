@@ -1,0 +1,46 @@
+pipeline {
+    agent any
+    parameters {
+        string(defaultValue: '', description: 'IP of application server', name: 'appIP')
+    }
+
+    stages{
+        stage('checkout'){
+            steps{
+                git 'https://github.com/indorenilesh/myecho.git'
+            }
+        }
+        
+        stage('build docker image'){
+            steps{
+                sh 'docker build -t indorenilesh/myecho .'
+            }
+        }
+        
+        stage('push docker image'){
+            steps{
+                withCredentials([string(credentialsId: 'gitpass', variable: 'gitpass')]) {
+                sh "docker login -u indorenilesh -p ${gitpass}"
+                }
+                sh 'docker push indorenilesh/myecho'
+            }
+        }
+        
+        stage('run container'){
+            steps{
+                sshagent(['myechowithkey']) {
+					script{
+						try{
+							sh "ssh -o StrictHostKeyChecking=no -l myecho ${params.appIP} docker container stop myecho"
+						}
+						catch(err){
+							echo err.getMessage()
+						}
+					}
+					sh "ssh -o StrictHostKeyChecking=no -l myecho ${params.appIP} docker run -itd --name myecho --rm -p 5000:5000 indorenilesh/myecho"
+					
+                }
+            }
+        }    
+    }
+}

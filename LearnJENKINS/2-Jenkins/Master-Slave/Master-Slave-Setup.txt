@@ -1,0 +1,40 @@
+1. Create Jenkins Master server
+    Spin ec2 instance with jenkins-userdaa.sh given in main directory (LearnJENKINS).
+
+2. Create Jenkins Slave server
+    Spin ec2 instance
+    execute below commands
+        useradd jenkins
+        passwd jenkins
+        sudo su - jenkins
+        ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
+        cd .ssh
+        cat id_rsa.pub > authorized_keys
+        chmod 700 authorized_keys
+
+3. Setting for slave server in Master server on terminal
+    execute below commands in Master server
+        mkdir -p ~/.ssh
+        cd ~/.ssh
+        ssh-keyscan -H <<SLAVE_PRIVATE_IP_>> >> ~/.ssh/known_hosts
+        chmod 700 known_hosts
+
+4. Setting for slave server in Master server on Jenkins console
+    go to "Manage Nodes and Clouds"
+    Click on "New Node" --> give node name "SLAVE1" --> select "Permanent Agent" --> OK
+        "Description" = "Slave node"
+        "Remote root directory" = "/local/apps/jenkins"
+        "Labels" = "SLAVE1"
+        "Launch method" = "Launch agent via SSH"
+        "HOST" = <<SLAVE_PRIVATE_IP>>
+        Click on "Add" --> "Jenkins"
+            "Kind" = "SSH Username and private key"
+            "ID" = "SLAVE1"
+            "Description" = "key for slave1 server"
+            "Username" = "Jenkins"
+            "Private Key" --> Enter directly --> Add
+                Copy containt of /home/jenkins/.ssh/id_rsa and paste here.
+            Click on "Add"
+        "Credentials" = "Jenkins" (Which you have created just now.)
+        "Host Key Verification Strategy" = "Knonw hosts file Verification Strategy"
+        Click on "Save"
