@@ -1,0 +1,22 @@
+Create Cloudformation template which will create infrastructure given in Infra-arch.PNG
+1) Create VPC name called "DEV"
+2) Create Internet Gateway called "DEV-IG", and attached it to "DEV" vpc.
+3) Create one public subnet called "PubSub1" and one private subnet called "PriSub1"
+4) Create route table called "PubRT" and "PriRT".
+5) Create security group called "PubSG" and "PriSG"
+6) "PubRT" should associate with "PubSub1" and "PriRT" should associate with "PriSub1"
+7) Add default route to "PubRT" for Internet access
+8) Open 22 and 80 port for all in "PubSG"
+9) Open 22 for "PubSub1" in "PriSG"
+10) VPC name, CIDR for VPC, CIDR for Public subnet and CIDR for Private subnet should be taken from USER as parameter.
+11) Parameter should ask to user in below sequence
+    VPC name
+	CIDR for VPC
+	CIDR for Public Subnet
+	CIDR for Private Subnet
+
+After creating above stack, you spin two instance in DEV vpc
+a) one in "PubSub1" subnet with using "PubRT" and "PubSG"
+a) one in "PriSub1" subnet with using "PriRT" and "PriSG"
+
+Login in ec2 instance which is in Public subnet, from this instance you should able to login on ec2 instance created on private instance. If you are able to do this, you win.
