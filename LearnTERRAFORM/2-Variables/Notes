@@ -1,0 +1,57 @@
+Everything in one file dangerous. 
+
+With variables you can....
+1) hide data 
+    You definetly don't want to expose AWS credential and other details which is important.
+2) achieve flexibility 
+    we can use variables in terraform files so that terraform script can be more generic in nature.
+    i.e. You can spin ec2 instance in different region or az by just passing it as a parameter.
+
+How variables work in terraform?
+Lets take example of AWS credential. We are going to create seperate file for AWS credentail.
+privder.tf  ----> In this file we use vaiable by using ${var.VARIABLENAME} or var.VARIABLENAME
+----------
+provider "aws" {
+  access_key = var.AWS_ACCESS_KEY
+  secret_key = var.AWS_SECRET_KEY
+  region     = var.AWS_REGION
+  az         = var.AWS_AZ
+}
+
+vars.tf ----> In this file we are defining variables, but not putting any values for them, but we can.
+-------
+variable "AWS_ACCESS_KEY" {}
+variable "AWS_SECRET_KEY" {}
+variable "AWS_REGION" { default = "us-east-2" }
+variable "AWS_AZ" { default = "us-east-2a" }
+
+terraform.tfvars    ----> In this file we are providing value to the variables. This file we will put in gitignore, so that this file will not get uploaded on git.
+----------------
+AWS_ACCESS_KEY = ""
+AWS_SECRET_KEY = ""
+AWS_REGION = ""
+AWS_AZ = ""
+
+variable mapping
+-----------------
+Sometimes variable value can be depend upon value of other variables. In this scenario we can use variable mapping.
+In variable mapping, variable value changes as per variable of value of it's dependend variable.
+i.e.
+resource "aws_instance" "test" {
+  ami           = var.AMIS[var.AWS_REGION]
+  instance_type = "t2.micro"
+}
+In above example ami id of instance is depend upon it's region name.
+
+variable default value
+-----------------------
+Sometimes we need to assign default value to variable, user forget to define value to the variable, but that variable is required to create resource.
+i.e. While creating ec2, region is required parameter, so we can define default value, if that variable not assigned any value.
+variable "AWS_REGION" { default = "us-east-2" }
+
+Note : 
+Define variable by using ---> variable "VARIABLENAME" { "VARIABLEVALUE" } 
+Use variable by using ---> ${var.VARIABLENAME}
+assign value in secret tfvars file by using ---> VARIABLENAME = "VARIABLEVALUE"
+
+terraform.tfvars file also known as variable defination file. It can not be named something different.

@@ -1,0 +1,103 @@
+Terraform 
+----------
+1) Automate provisioning of infrastructure
+    Note - Ansible, chef, puppet has focus on automating of installation and configuration of software.
+2) infrastructure as code (IaC)
+3) automate your infrastructure
+4) Keep infrastructure in certian state (compliant)
+5) auditable infrastructure
+    Note - you can keep code in version control system like GIT, will help to maintain history of infrastructure.
+6) Terraform files have .tf extension
+
+Terraform AWS documentation - https://www.terraform.io/docs/providers/aws/index.html
+
+installation
+------------
+Terraform comes as portable installer. So just download zip file and unzip it. It has only one file terraform which is binary file.
+
+Download zip file from below website.
+https://www.terraform.io/downloads.html
+https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip
+
+You can add that binary file location in PATH so that you can execute it from anywhere.
+
+Pre-requisite
+-------------
+Before running terraform script, below are the pre-requisite
+1) IAM user with Administartor access with secret and access key in handy.
+2) Download and unzip terraform zip file.
+3) keep terraform in user's ~/bin directory, so that it will be available for that user. i.e. /home/ec2-user/bin/terraform 
+
+Start to invade
+----------------
+Note - I am using amazon default user ec2-user and I have copied terraform bin inside /home/ec2-user/bin/terraform
+Note - I am creating directory terraform and keeping terraform files inside that and running all commands from inside terraform directory. (/home/ec2-user/terraform)
+
+1) Initialize terraform
+Very first time we need to Initialize terraform, in this process it will check it's dependencies and will install it.
+Command to Initialize terraform is...
+
+terrform init 
+
+2) Understand syntax
+<BLOCK TYPE> "<BLOCK LABEL>" "<BLOCK LABEL>" {
+  # Block body
+  <IDENTIFIER> = <EXPRESSION> # Argument
+}
+ 
+resource "aws_instance" "test1" {
+  ami           = "ami-083ebc5a49573896a"
+  instance_type = "t2.micro"
+}
+
+# Blocks are containers for other content and usually represent the configuration of some kind of object, 
+like a resource. Blocks have a block type, can have zero or more labels, and have a body that contains any 
+number of arguments and nested blocks. Most of Terraform's features are controlled by top-level blocks in a 
+configuration file.
+# Arguments assign a value to a name. They appear within blocks.
+# Expressions represent a value, either literally or by referencing and combining other values. They appear as values for arguments, or within other expressions.
+
+3) Create instance.tf to spin one ec2 instance
+refer instance.tf
+
+4) check Plan
+terraform plan
+
+This command will go through all the files available in current path and will show us PLAN. 
+In PLAN generally it shows what is going to be created, updated, and deleted.
+i.e.
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+5) apply terrform configuration
+terraform apply
+
+This command will again show PLAN and ask for approval to make change.
+
+6) login in aws and check new instance created or not.
+
+7) destroy whole infrastructure
+terraform destroy
+
+terraform.tfstate
+-------------------
+terraform.tfstate file play very important role in terraform. It is db for terraform, contain status of infrastructure at the time of last apply command.
+If this file get deleted, then whatever infrastructure created till the time, will be stateless and can not control by terraform.
+
+
+###############################
+It is a always a good idea to take bluprint of terrform plan and then apply that blueprint.
+terraform plan -out bluprint
+terraform apply bluprint
+
+Note - once bluprint created it can be used only once. After creating bluprint if there is any change in infrastructure,
+it will not work. You will get below error.
+
+Error: Saved plan is stale
+
+The given plan file can no longer be applied because the state was changed by
+another operation after the plan was created.
+###############################
+
+https://www.terraform.io/docs/providers/index.html
+https://www.terraform.io/docs/configuration/expressions.html#references-to-resource-attributes
+https://www.terraform.io/docs/configuration/resources.html

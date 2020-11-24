@@ -1,0 +1,7 @@
+Create ec2 instance with below details.
+1) vpc
+2) region
+2) subnet
+3) security group <should be mapped as per subnet>
+4) key
+5) ami id <should be mapped as per region>
