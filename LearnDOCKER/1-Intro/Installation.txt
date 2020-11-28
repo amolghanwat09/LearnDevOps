@@ -1,0 +1,14 @@
+##Centos, fadero, RHEL or  Amazon linux
+#install docker
+yum install docker
+
+#start docker
+systemctl start docker
+
+#enable after reboot
+systemctl enable docker
+
+#How to use docker with normal user
+When we install docker package in the system, it create docker group.
+User which want to use docker, add docker group as a supplimentary group to that user by executing below command.
+usermod -aG docker username
