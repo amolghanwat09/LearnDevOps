@@ -10,6 +10,4 @@ COPY . .
 
 LABEL version="1.0"
 
-VOLUME ["/app/public"]
-
 CMD flask run --host=0.0.0.0 --port=5000
