@@ -1,0 +1,15 @@
+- name: ec2 launcher
+  hosts: localhost
+  tasks:
+  - name: launch ec2
+    ec2:
+      instance_type: t2.micro
+      key_name: devops
+      image: ami-09558250a3419e7d0
+      region: us-east-2
+      count: 1
+      vpc_subnet_id: subnet-9e974af5
+      assign_public_ip: yes
+      group: default
+      instance_tags:
+        ansible: ansible_ec2
